@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AR PIXEL AI</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#080d1b;
+ color:white;
+}
+header{
+ background:#111a30;
+ padding:20px;
+ text-align:center;
+ border-bottom:1px solid #263653;
+}
+header h1{color:#00e5ff;margin:0}
+header p{color:#aabbd0}
+.container{
+ max-width:650px;
+ margin:30px auto;
+ padding:15px;
+}
+.card{
+ background:#111a30;
+ padding:25px;
+ border-radius:18px;
+ text-align:center;
+}
+.card h2{color:#00e5ff}
+#chat{
+ margin-top:20px;
+ background:#111a30;
+ border-radius:15px;
+ padding:15px;
+ min-height:250px;
+}
+.msg{
+ padding:12px;
+ margin:10px 0;
+ border-radius:10px;
+ background:#202e49;
+ overflow-wrap:anywhere;
+}
+input{
+ width:75%;
+ padding:14px;
+ border:0;
+ border-radius:10px;
+ margin-top:15px;
+}
+button{
+ padding:14px;
+ background:#00cde8;
+ border:0;
+ border-radius:10px;
+ font-weight:bold;
+ cursor:pointer;
+}
+footer{
+ text-align:center;
+ color:#8293aa;
+ padding:25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>⚡ AR PIXEL AI</h1>
+<p>Your Personal AI Assistant</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>Welcome to AR PIXEL AI</h2>
+<p>आपका स्वागत है! अपने सवाल नीचे लिखें।</p>
+</div>
+
+<div id="chat">
+<div class="msg">
+🤖 नमस्ते! मैं AR PIXEL AI हूँ। आप क्या जानना चाहते हैं?
+</div>
+</div>
+
+<input id="question" placeholder="अपना सवाल लिखें...">
+<button onclick="send()">Send</button>
+
+</div>
+
+<footer>
+© 2026 AR PIXEL AI | All Rights Reserved
+</footer>
+
+<script>
+function send(){
+ let input=document.getElementById("question");
+ let q=input.value.trim();
+
+ if(!q)return;
+
+ let chat=document.getElementById("chat");
+
+ chat.innerHTML +=
+ '<div class="msg">👤 '+escapeHTML(q)+'</div>';
+
+ chat.innerHTML +=
+ '<div class="msg">🤖 आपका सवाल मिल गया है! असली AI जवाब देने की सुविधा जल्द जोड़ी जाएगी।</div>';
+
+ input.value="";
+ chat.scrollTop=chat.scrollHeight;
+}
+
+function escapeHTML(s){
+ return s.replace(/[&<>"']/g,c=>({
+ '&':'&amp;','<':'&lt;','>':'&gt;',
+ '"':'&quot;',"'":'&#39;'
+ }[c]));
+}
+</script>
+
+</body>
+  </html>
